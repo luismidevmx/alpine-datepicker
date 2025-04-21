@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <header><h1>Alpine Datepicker Calendar</h1></header>
+
+    <main>
+      <div class="datepicker as-dp" x-data="createDatepicker()">
+        <div class="dp-header">
+          <div class="dp-results">
+            <p x-text="humanSelectedDate" class="dp-result" :title="`UTC ${utcDateValue}`"></p>
+            <input type="hidden" name="localDate" :value="localDateValue" />
+            <input type="hidden" name="utcDate" :value="utcDateValue" />
+          </div>
+        </div>
+
+        <div class="dp-left">
+          <div class="dp-days-container">
+            <div class="dp-weekdays">
+              <template x-for="weekday in weekdays">
+                <div class="dp-weekday" x-text="weekday"></div>
+              </template>
+            </div>
+
+            <div class="dp-days">
+              <template x-for="day in daysShift">
+                <span class="dp-slide">.</span>
+              </template>
+
+              <template x-for="day in smartDays">
+                <button type="button" role="button" class="dp-day" @click="selectedDay = day.label" x-text="day.label" :class="{ 'selected': selectedDay === day.label }"></button>
+              </template>
+            </div>
+          </div>
+        </div>
+
+        <div class="dp-right">
+          <div class="dp-months-container">
+            <div class="dp-months">
+              <template x-for="month in smartMonths">
+                <button type="button" role="button" @click="selectedMonth = month.value" x-text="month.label" :class="{ 'selected': month.value === selectedMonth }"></button>
+              </template>
+            </div>
+          </div>
+
+          <div class="dp-years">
+            <select x-model="selectedYear">
+              <template x-for="year in years">
+                <option class="dp-year" x-text="year" :value="year" :selected="year === selectedYear"></option>
+              </template>
+            </select>
+          </div>
+
+          <div class="dp-time">
+            <input type="range" name="time" id="time" min="7" max="22" step=".5" x-model="selectedHour" />
+            <span x-text="selectedTime"></span>
+          </div>
+        </div>
+
+        <div class="dp-footer"></div>
+      </div>
+    </main>
+
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/picocss/2.1.0/pico.min.css" integrity="sha512-VabDICIiO3Q38T5DDIaelzPmEGDziNEyzzr4tU8tHdq+Z/QIap5LuwYez4iZLF9JFDgqpx0pVasyXzAtBEzYmw==" crossorigin="anonymous" /> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w==" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/luxon/3.5.0/luxon.min.js" integrity="sha512-SN7iwxiJt9nFKiLayg3NjLItXPwRfBr4SQSIugMeBFrD4lIFJe1Z/exkTZYAg3Ul+AfZEGws2PQ+xSoaWfxRQQ==" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+
+    <link rel="stylesheet" href="dist/styles.css" />
+    <script src="dist/index.js"></script>
+  </body>
+</html>

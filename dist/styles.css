@@ -1,0 +1,108 @@
+html {
+  min-height: 100vh;
+}
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-family: 'Open Sans', sans-serif;
+}
+h1 {
+  text-align: center;
+}
+header {
+  padding: 4rem 2rem;
+}
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.datepicker {
+  display: grid;
+  gap: 0.5em 2em;
+  grid-template-columns: 1fr 1fr;
+}
+.datepicker button {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+.datepicker button,
+.datepicker span {
+  padding: 0.7em;
+}
+.dp-left,
+.dp-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 100%;
+}
+.dp-header,
+.dp-footer {
+  grid-column: span 2;
+}
+.dp-days,
+.dp-weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+}
+.dp-hours {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+}
+.dp-day {
+  width: 42px;
+  height: 42px;
+}
+.dp-weekdays {
+  text-align: center;
+}
+.dp-months {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+.dp-years {
+  text-align: right;
+  font-size: 1.4em;
+}
+.dp-slide {
+  text-align: center;
+}
+.datepicker {
+  display: grid;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+.datepicker button {
+  transition: background 0.3s ease;
+}
+.datepicker button:hover {
+  background: #f7f7f7;
+}
+.datepicker select {
+  border: none;
+  background: #f7f7f7;
+  padding: 0.2em 1em;
+}
+.dp-weekday {
+  color: #242424;
+}
+.dp-day {
+  border-radius: 50%;
+}
+.dp-day:nth-child(7n + 3) {
+  color: #f00;
+}
+.selected {
+  background: #efefef;
+  font-weight: bold;
+}
+.dp-result {
+  font-size: 1.5em;
+  text-align: center;
+}
+.dp-slide {
+  color: #d2d2d2;
+}
