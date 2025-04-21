@@ -2,9 +2,9 @@
 
 A lightweight and fully functional datepicker/calendar built using [Alpine.js](https://alpinejs.dev/) and [Luxon](https://moment.github.io/luxon/). This component supports date and time selection with intuitive controls and minimal dependencies.
 
-## Features
-
 ![](docs/1.png)
+
+## Features
 
 - 📅 Dynamic calendar rendering (days, weekdays, months, years)
 - ⏰ Time range slider (customizable from 7:00 to 22:00)
